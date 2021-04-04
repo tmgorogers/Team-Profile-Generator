@@ -2,9 +2,10 @@
 
 ![APM](https://img.shields.io/apm/l/open)
 
-## Screenshoot
+## Screenshot
 
-![Image](Team-Profile-Generator.png)
+
+[Screenshot](/Team-Profile-Generator/src/Team-Profile-Generator.png)
 
 
 ## Mock-Up
