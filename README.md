@@ -5,7 +5,7 @@
 ## Screenshot
 
 
-[Screenshot](/Team-Profile-Generator/src/Team-Profile-Generator.png)
+[Screenshot](/Team-Profile-Generator/Team-Profile-Generator.png)
 
 
 ## Mock-Up
