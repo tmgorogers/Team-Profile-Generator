@@ -5,10 +5,9 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 const http = require('http');
-const OUTPUT_DIR = path.resolve(_dirname, "output");
+const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRender");
-const app = employees();
 
 const employees = [];
 
@@ -18,7 +17,8 @@ const employees = [];
 //They make your asynchronous code less "clever" and more readable. If you use the async keyword before a function definition, you can then use await within the function. 
 //When you await a promise, the function is paused in a non-blocking way until the promise settles. ... If the promise rejects, the rejected value is thrown.//
 
-async function askquestion() {
+async function askquestions() {
+
     const res = await inquirer.prompt([
         {
             type: "input",
@@ -60,7 +60,7 @@ async function askquestion() {
             ]);
    
             employees.push(
-            newManager(res.name, res.Id, res.email, phone.officeNumber)
+            new Manager(res.name, res.Id, res.email, phone.officeNumber)
         );
         addAnotherEmployee();
     
@@ -68,14 +68,14 @@ async function askquestion() {
 
     case "Engineer":
         
-        const github = await inquirer.prompt([
+        const gitHub = await inquirer.prompt([
             {
                 type: "input",
                 name: "gitHubUsherName",
                 message: "What the engineer's github username?"
             }
         ]);
-        employee.push(
+        employees.push(
             new Engineer(res.name, res.id, res.email, gitHub.gitHubUserName)
         );
         addAnotherEmployee() 
@@ -109,11 +109,16 @@ const addMoreEmployee = await inquirer.prompt([
         message: "Do you want to add another employee?"
     }
 ]);
-addMoreEmployee.addAgain == true ? askquestions() : buildTeam(employees);
+addMoreEmployee.addAgain === true ? askquestions() : buildTeam(employees);
      }    
+     
 function buildTeam(employees){
+    
     if (!fs.existsSync(OUTPUT_DIR)){
-        fs.mkdirSync(OUTPUT_DIR);
+       fs.mkdirSync(OUTPUT_DIR);
     }
-    fs.writeFileSync(outputPath, render(employees), "utf-8");
-}
+    fs.writeFileSync(outputPath, render(employees), "team.html");
+    console.log("Created a team.html file")
+};
+
+//init()
