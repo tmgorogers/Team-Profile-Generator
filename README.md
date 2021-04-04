@@ -4,7 +4,7 @@
 
 ## Screenshoot
 
-![Image](C:/Users/user/CodingBootcamp/Team-Profile-Generator/src/Team-Profile-Generator.png)
+![Image](Team-Profile-Generator.png)
 
 
 ## Mock-Up
